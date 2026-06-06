@@ -97,7 +97,7 @@ Aplikacja wykorzystuje relacyjny model składowania danych zarządzany przez sil
 
 Poniższy schemat bazy danych przedstawia fizyczną implementację tabel w bazie danych SQLite. Odzwierciedla on standardowe tabele generowane przez system autentykacji Django (`auth_user`) oraz dedykowane tabele biznesowe aplikacji (`tasks_category` oraz `tasks_task`), wraz z mapowaniem kluczy głównych (PK) i obcych (FK).
 
-![Schemat bazy danych](schema_bazy.png)
+![Schemat bazy danych](schemat_bazy.png)
 
 ### Diagram klas UML
 
