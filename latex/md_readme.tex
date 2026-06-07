@@ -1,0 +1,122 @@
+\chapter{To\+Do App (Django + Docker) }
+\hypertarget{md_readme}{}\label{md_readme}\index{ToDo App (Django + Docker)@{ToDo App (Django + Docker)}}
+\label{md_readme_autotoc_md0}%
+\Hypertarget{md_readme_autotoc_md0}%
+\hypertarget{md_readme_autotoc_md1}{}\doxysection{\texorpdfstring{Opis projektu}{Opis projektu}}\label{md_readme_autotoc_md1}
+Aplikacja webowa typu To\+Do stworzona w frameworku Django. Umożliwia zarządzanie zadaniami, ich kategoryzację, wyszukiwanie oraz eksport danych do pliku CSV. Aplikacja zawiera również system powiadomień informujących użytkownika o wykonanych operacjach.
+
+Projekt uruchamiany jest w środowisku Docker.
+
+\DoxyHorRuler{0}
+\hypertarget{md_readme_autotoc_md3}{}\doxysection{\texorpdfstring{Stos technologiczny}{Stos technologiczny}}\label{md_readme_autotoc_md3}
+
+\begin{DoxyItemize}
+\item {\bfseries{Backend:\+}} Python, Django
+\item {\bfseries{Baza danych:\+}} SQLite3
+\item {\bfseries{Infrastruktura:\+}} Docker, Docker Compose
+\item {\bfseries{Frontend:\+}} Szablony HTML, CSS (pliki statyczne)
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_readme_autotoc_md5}{}\doxysection{\texorpdfstring{Uruchomienie aplikacji}{Uruchomienie aplikacji}}\label{md_readme_autotoc_md5}
+\hypertarget{md_readme_autotoc_md6}{}\doxysubsection{\texorpdfstring{Wymagania}{Wymagania}}\label{md_readme_autotoc_md6}
+
+\begin{DoxyItemize}
+\item Docker ~\newline
+
+\item Docker Compose ~\newline
+
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_readme_autotoc_md8}{}\doxysubsection{\texorpdfstring{Uruchomienie}{Uruchomienie}}\label{md_readme_autotoc_md8}
+Aby uruchomić aplikację, należy wykonać polecenie:\+
+
+docker compose up --build
+
+Aby zatrzymać działającą aplikację (kontenery), w innym oknie terminala wykonaj polecenie:\+
+
+docker compose down
+
+{\itshape Wskazówka:\+ W pliku {\ttfamily docker-\/compose.\+yml} skonfigurowano mapowanie wolumenów ({\ttfamily -\/ .:\+/\+app}). Oznacza to, że modyfikacje kodu wykonywane lokalnie na Twoim komputerze są natychmiast odzwierciedlane w kontenerze, bez konieczności ponownego budowania obrazu.}
+
+\DoxyHorRuler{0}
+\hypertarget{md_readme_autotoc_md10}{}\doxysection{\texorpdfstring{Dostęp do aplikacji}{Dostęp do aplikacji}}\label{md_readme_autotoc_md10}
+Po uruchomieniu aplikacja dostępna jest pod adresem:\+
+
+\href{http://127.0.0.1:8000/}{\texttt{http:\+/\+/\+127.\+0.\+0.\+1:\+8000/\+}}
+
+\DoxyHorRuler{0}
+\hypertarget{md_readme_autotoc_md12}{}\doxysection{\texorpdfstring{Działanie kontenera}{Działanie kontenera}}\label{md_readme_autotoc_md12}
+Podczas uruchamiania kontenera wykonywane są następujące operacje:\+
+
+
+\begin{DoxyItemize}
+\item budowanie obrazu aplikacji Django ~\newline
+
+\item instalacja zależności z pliku requirements.\+txt ~\newline
+
+\item wykonanie migracji bazy danych ~\newline
+
+\item uruchomienie serwera aplikacji ~\newline
+
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_readme_autotoc_md14}{}\doxysection{\texorpdfstring{Baza danych}{Baza danych}}\label{md_readme_autotoc_md14}
+W projekcie wykorzystano bazę danych SQLite.
+
+
+\begin{DoxyItemize}
+\item plik bazy danych:\+ db.\+sqlite3 ~\newline
+
+\item przechowywana lokalnie w projekcie ~\newline
+
+\item migracje wykonywane automatycznie przy starcie aplikacji ~\newline
+
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_readme_autotoc_md16}{}\doxysection{\texorpdfstring{Struktura projektu (skrót)}{Struktura projektu (skrót)}}\label{md_readme_autotoc_md16}
+todo/\+ │ ├── tasks/\+ \# aplikacja Django ├── todo/\+ \# konfiguracja projektu ├── templates/\+ \# szablony HTML ├── static/\+ \# pliki statyczne (CSS) │ ├── Dockerfile ├── docker-\/compose.\+yml ├── requirements.\+txt ├── db.\+sqlite3
+
+\DoxyHorRuler{0}
+\hypertarget{md_readme_autotoc_md18}{}\doxysection{\texorpdfstring{Funkcjonalności}{Funkcjonalności}}\label{md_readme_autotoc_md18}
+
+\begin{DoxyItemize}
+\item {\bfseries{Autentykacja i autoryzacja:\+}} Bezpieczny system rejestracji, logowania oraz zarządzania sesją użytkownika.
+\item {\bfseries{Moduł zarządzania zadaniami (CRUD):\+}} Kompleksowa obsługa cyklu życia zadań (tworzenie, odczyt, aktualizacja, usuwanie).
+\item {\bfseries{Kategoryzacja:\+}} Możliwość elastycznego przypisywania i zarządzania kategoriami zadań, ułatwiająca organizację pracy.
+\item {\bfseries{Zaawansowane wyszukiwanie:\+}} Mechanizmy filtrowania po atrybutach oraz wyszukiwania tekstowego na liście zadań.
+\item {\bfseries{Eksport danych:\+}} Wbudowany generator raportów umożliwiający zrzut aktualnego zestawienia zadań do formatu CSV.
+\item {\bfseries{Powiadomienia systemowe:\+}} Interaktywny system komunikatów (flash messages) informujący użytkownika o wynikach podjętych akcji (np. pomyślny zapis, błędy walidacji).
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_readme_autotoc_md20}{}\doxysection{\texorpdfstring{Testowanie i weryfikacja}{Testowanie i weryfikacja}}\label{md_readme_autotoc_md20}
+\hypertarget{md_readme_autotoc_md21}{}\doxysubsection{\texorpdfstring{Scenariusze testów manualnych (UAT)}{Scenariusze testów manualnych (UAT)}}\label{md_readme_autotoc_md21}
+Po zainicjowaniu aplikacji zaleca się przeprowadzenie podstawowej weryfikacji funkcjonalnej:\+
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Moduł tożsamości:\+}} Rejestracja nowego użytkownika, logowanie do systemu oraz poprawne wylogowanie.
+\item {\bfseries{Operacje na zadaniach:\+}} Dodanie zadania testowego, modyfikacja jego atrybutów (np. zmiana nazwy, kategorii) oraz jego usunięcie.
+\item {\bfseries{Nawigacja:\+}} Przetestowanie mechanizmów wyszukiwania słownikowego oraz filtrowania wyników za pomocą dostępnych kryteriów.
+\item {\bfseries{Integracja:\+}} Weryfikacja poprawności generowania pliku CSV wraz z kontrolą struktury wyeksportowanych danych.
+\item {\bfseries{Interfejs:\+}} Sprawdzenie responsywności interfejsu (UI) oraz widoczności i czytelności powiadomień systemowych.
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{md_readme_autotoc_md23}{}\doxysection{\texorpdfstring{Autor}{Autor}}\label{md_readme_autotoc_md23}
+Projekt wykonany w ramach nauki pracy z metodyką Scrum.
+
+
+\begin{DoxyEnumerate}
+\item Uladzislau Beliakou
+\item Patryk Bieniaszek
+\item Mirosław Kitowski
+\item Daria Panchenko
+\item Łukasz Rosicki
+\item Marta Starek-\/\+Piasny
+\item Ryszard Wasilewski 
+\end{DoxyEnumerate}
